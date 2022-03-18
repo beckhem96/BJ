@@ -7,7 +7,7 @@ def maze(i, j, top):
             top += 1
             v[ni][nj] = 1
             if ni == n and nj == m:
-                result.append(top)
+                result.append(len(stack))
             maze(ni, nj, top)
             stack.pop()
             top -= 1
@@ -28,4 +28,4 @@ v[startj][startj] = 1
 top += 1
 result = []
 maze(starti, startj, top)
-print(min(result)+1)
+print(min(result))
