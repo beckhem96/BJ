@@ -25,5 +25,5 @@ for tc in range(1, T+1):
             if arr[i][j] == 1 and not v[i][j]:
                 v[i][j] = 1
                 BFS(i, j)
-                cnt += 1
+                cnt += 1 # 탐색 돌면 +1
     print(cnt)
