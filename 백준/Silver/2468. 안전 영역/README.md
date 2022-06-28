@@ -162,6 +162,7 @@ def dfs(i, j, h):
 
     for di, dj in [[1, 0], [0, 1], [-1, 0], [0, -1]]:
         ni, nj = i+di, j+dj
+	
         if 0<=ni<N and 0<=nj<N and not v[ni][nj] and arr[ni][nj] > h:
             v[ni][nj] = 1
             dfs(ni, nj, h)
@@ -186,3 +187,4 @@ for rain in range(max(map(max, arr))):
 
     result = max(result, cnt)
 print(result)
+# 위코드는 메모리 초과 났다 차이점을 찾아봐!
