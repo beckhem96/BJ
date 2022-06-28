@@ -154,3 +154,35 @@
 
  <p>첫째 줄에 장마철에 물에 잠기지 않는 안전한 영역의 최대 개수를 출력한다.</p>
 
+```python
+import sys
+sys.setrecursionlimit(100000)
+
+def dfs(i, j, h):
+
+    for di, dj in [[1, 0], [0, 1], [-1, 0], [0, -1]]:
+        ni, nj = i+di, j+dj
+        if 0<=ni<N and 0<=nj<N and not v[ni][nj] and arr[ni][nj] > h:
+            v[ni][nj] = 1
+            dfs(ni, nj, h)
+
+
+
+N = int(sys.stdin.readline())
+arr = [list(map(int, sys.stdin.readline().split())) for _ in range(N)]
+
+result = 0
+for rain in range(max(map(max, arr))):
+    cnt = 0
+    # rain 보다 낮은 지역 표시
+
+    v = [[0] * (N) for _ in range(N)]
+    for i in range(N):
+        for j in range(N):
+            if not v[i][j] and arr[i][j] > rain:
+                v[i][j] = 1
+                dfs(i, j, rain)
+                cnt += 1
+
+    result = max(result, cnt)
+print(result)
