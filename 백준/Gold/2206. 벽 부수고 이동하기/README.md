@@ -3,7 +3,7 @@
 [문제 링크](https://www.acmicpc.net/problem/2206) 
 
 ### 성능 요약
-
+### using deque is more faster than just using q(list)
 메모리: 289868 KB, 시간: 1572 ms
 
 ### 분류
